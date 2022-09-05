@@ -19,11 +19,9 @@
 // clang-format off
 
 enum layers{
-    MAC_BASE,
-    WIN_BASE,
-    _FN1,
-    _FN2,
-    _FN3
+    BASE,
+    SYMB,
+    NUMB,
 };
 
 enum custom_keycodes {
@@ -55,40 +53,27 @@ key_combination_t key_comb_list[2] = {
 static uint8_t mac_keycode[4] = { KC_LOPT, KC_ROPT, KC_LCMD, KC_RCMD };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [MAC_BASE] = LAYOUT_ansi_69(
-        KC_ESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
-        KC_TAB,  KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          KC_DEL,
-        KC_CAPS, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,              KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,           KC_HOME,
-        KC_LSFT,           KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,     KC_B,    KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT, KC_UP,
-        KC_LCTL, KC_LOPTN, KC_LCMMD,          KC_SPC,           MO(_FN1), MO(_FN3),         KC_SPC,            KC_RCMMD,           KC_LEFT, KC_DOWN, KC_RGHT),
+    [BASE] = LAYOUT_ansi_69(
+        KC_ESC,   HYPR(KC_A),  HYPR(KC_G),    HYPR(KC_S),    HYPR(KC_X),  HYPR(KC_F),  HYPR(KC_W),  HYPR(KC_C),  HYPR(KC_D),  _______,          _______,     _______,          _______,            RGB_TOG,      KC_MUTE,
+        KC_TAB,   KC_Q,        KC_W,          KC_E,          KC_R,        KC_T,                     KC_Y,        KC_U,        KC_I,             KC_O,        KC_P,             _______,  _______,  _______,      KC_PGUP,
+        _______,  KC_A,        KC_S,          KC_D,          KC_F,        KC_G,                     KC_H,        KC_J,        KC_K,             KC_L,        KC_SCLN,          _______,            _______,      KC_PGDN,
+        _______,  KC_Z,        LOPT_T(KC_X),  LGUI_T(KC_C),  KC_V,        KC_B,        _______,     KC_N,        KC_M,        LGUI_T(KC_COMM),  KC_DOT,       CTL_T(KC_ENT),   _______,  KC_UP,
+        _______,  _______,                    _______,       MO(SYMB),    KC_SPC,                   KC_LSFT,     MO(NUMB),    _______,                                     KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [WIN_BASE] = LAYOUT_ansi_69(
-        KC_ESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
-        KC_TAB,  KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          KC_DEL,
-        KC_CAPS, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,              KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,           KC_HOME,
-        KC_LSFT,           KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,     KC_B,    KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT, KC_UP,
-        KC_LCTL, KC_LWIN,  KC_LALT,           KC_SPC,           MO(_FN2), MO(_FN3),         KC_SPC,            KC_RALT,            KC_LEFT, KC_DOWN, KC_RGHT),
+    [SYMB] = LAYOUT_ansi_69(
+        KC_ESC,   _______,  _______,       _______,       _______,   _______,               _______,  _______,   _______,          _______, _______,          _______,  _______,  _______,      KC_MUTE,
+        KC_TAB,   KC_QUOT,  KC_DQUO,       KC_CIRC,       KC_QUES,   KC_GRAVE,              KC_LBRC,  KC_LT,     KC_EQL,           KC_GT,   KC_RBRC,          _______,  _______,  _______,      KC_PGUP,
+        _______,  KC_EXLM,  KC_AT,         KC_HASH,       KC_DLR,    KC_PERC,               KC_LCBR,  KC_LPRN,   KC_COLN,          KC_RPRN, KC_RCBR,          _______,            _______,      KC_PGDN,
+        _______,  KC_BSLS,  KC_TILD,       KC_PIPE,       KC_AMPR,   KC_SCLN,     _______,  KC_SLSH,  KC_ASTR,   KC_MINS,          KC_PLUS, KC_UNDS,          _______,  KC_UP,
+        _______,  _______,                 _______,       MO(SYMB),  KC_SPC,                KC_LSFT,  MO(NUMB),  _______,                                     KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [_FN1] = LAYOUT_ansi_69(
-        KC_GRV,  KC_BRID,  KC_BRIU,  KC_MCTL, KC_LPAD, RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          _______,
-        RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, _______,  _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______,           _______,  _______, _______, _______, _______,  _______, NK_TOGG, _______, _______,  _______,  _______,  _______, _______,
-        _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            _______, _______, _______),
+    [NUMB] = LAYOUT_ansi_69(
+        KC_ESC,   _______,  _______,       _______,       _______,   _______,               _______,  _______,   _______,          _______, _______,          _______,  _______,  _______,      KC_MUTE,
+        KC_TAB,   KC_LCTL,  KC_LOPT,       KC_TRNS,       KC_TAB,    KC_TRNS,               KC_PGUP,  KC_HOME,   KC_END,           KC_PGDN, KC_VOLU,          _______,  _______,  _______,      KC_PGUP,
+        _______,  KC_1,     KC_2,          KC_3,          KC_4,      KC_5,                  KC_LEFT,  KC_DOWN,   KC_UP,            KC_RGHT, KC_VOLD,          _______,            _______,      KC_PGDN,
+        _______,  KC_6,     KC_7,          KC_8,          KC_9,      KC_0,        _______,  KC_ESC,   KC_TRNS,   KC_TRNS,          KC_TRNS, KC_MUTE,          _______,  KC_UP,
+        _______,  _______,                 _______,       MO(SYMB),  KC_SPC,                KC_LSFT,  MO(NUMB),  _______,                                     KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [_FN2] = LAYOUT_ansi_69(
-        KC_GRV,  KC_BRID,  KC_BRIU,  KC_TASK, KC_FLXP, RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          _______,
-        RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, _______,  _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______,           _______,  _______, _______, _______, _______,  _______, NK_TOGG, _______, _______,  _______,  _______,  _______, _______,
-        _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            _______, _______, _______),
-
-    [_FN3] = LAYOUT_ansi_69(
-        KC_TILD, KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,          _______,
-        RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, _______,  _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______,           _______,  _______, _______, _______, _______,  _______, _______, _______, _______,  _______,  _______,  _______, _______,
-        _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            _______, _______, _______)
 };
 
 // clang-format on
@@ -135,3 +120,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;   // Process all other keycodes normally
     }
 }
+
+const uint16_t PROGMEM combo_lt[] = { KC_H, KC_J, COMBO_END };
+const uint16_t PROGMEM combo_gt[] = { KC_K, KC_L, COMBO_END };
+const uint16_t PROGMEM combo_col[] = { KC_J, KC_K, COMBO_END };
+const uint16_t PROGMEM combo_dash[] = { KC_C, KC_V, COMBO_END };
+const uint16_t PROGMEM combo_esc[] = { KC_W, KC_E, COMBO_END };
+const uint16_t PROGMEM combo_tab[] = { KC_E, KC_R, COMBO_END };
+const uint16_t PROGMEM combo_backspace[] = { KC_S, KC_D, COMBO_END };
+
+combo_t key_combos[COMBO_COUNT] = {
+  COMBO(combo_lt, KC_LT),
+  COMBO(combo_gt, KC_GT),
+  COMBO(combo_col, KC_COLN),
+  COMBO(combo_dash, KC_MINS),
+  COMBO(combo_esc, KC_ESC),
+  COMBO(combo_tab, KC_TAB),
+  COMBO(combo_backspace, KC_BSPC),
+};
