@@ -122,4 +122,4 @@
 #define RAW_HID_CMD 0xAB
 
 #define IGNORE_MOD_TAP_INTERRUPT
-#define COMBO_COUNT 7
+#define COMBO_COUNT 6

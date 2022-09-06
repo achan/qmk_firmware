@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_69(
         KC_ESC,   HYPR(KC_A),  HYPR(KC_G),    HYPR(KC_S),    HYPR(KC_X),  HYPR(KC_F),  HYPR(KC_W),  HYPR(KC_C),  HYPR(KC_D),  _______,          _______,     _______,          _______,            RGB_TOG,      KC_MUTE,
         KC_TAB,   KC_Q,        KC_W,          KC_E,          KC_R,        KC_T,                     KC_Y,        KC_U,        KC_I,             KC_O,        KC_P,             _______,  _______,  _______,      KC_PGUP,
-        _______,  KC_A,        KC_S,          KC_D,          KC_F,        KC_G,                     KC_H,        KC_J,        KC_K,             KC_L,        KC_SCLN,          _______,            _______,      KC_PGDN,
+        _______,  KC_A,        KC_S,          KC_D,          KC_F,        KC_G,                     KC_H,        KC_J,        KC_K,             KC_L,        KC_QUOT,          _______,            _______,      KC_PGDN,
         _______,  KC_Z,        LOPT_T(KC_X),  LGUI_T(KC_C),  KC_V,        KC_B,        _______,     KC_N,        KC_M,        LGUI_T(KC_COMM),  KC_DOT,       CTL_T(KC_ENT),   _______,  KC_UP,
         _______,  _______,                    _______,       MO(SYMB),    KC_SPC,                   KC_LSFT,     MO(NUMB),    _______,                                     KC_LEFT,  KC_DOWN,  KC_RGHT),
 
@@ -124,16 +124,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM combo_lt[] = { KC_H, KC_J, COMBO_END };
 const uint16_t PROGMEM combo_gt[] = { KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM combo_col[] = { KC_J, KC_K, COMBO_END };
-const uint16_t PROGMEM combo_dash[] = { KC_C, KC_V, COMBO_END };
-const uint16_t PROGMEM combo_esc[] = { KC_W, KC_E, COMBO_END };
-const uint16_t PROGMEM combo_tab[] = { KC_E, KC_R, COMBO_END };
-const uint16_t PROGMEM combo_backspace[] = { KC_S, KC_D, COMBO_END };
+const uint16_t PROGMEM combo_esc[] = { KC_Q, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_tab[] = { KC_F, KC_G, COMBO_END };
+const uint16_t PROGMEM combo_backspace[] = { KC_F, KC_D, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
   COMBO(combo_lt, KC_LT),
   COMBO(combo_gt, KC_GT),
   COMBO(combo_col, KC_COLN),
-  COMBO(combo_dash, KC_MINS),
   COMBO(combo_esc, KC_ESC),
   COMBO(combo_tab, KC_TAB),
   COMBO(combo_backspace, KC_BSPC),
