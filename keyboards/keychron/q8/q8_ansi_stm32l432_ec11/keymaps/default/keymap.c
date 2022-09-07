@@ -54,25 +54,25 @@ static uint8_t mac_keycode[4] = { KC_LOPT, KC_ROPT, KC_LCMD, KC_RCMD };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_ansi_69(
-        KC_ESC,   HYPR(KC_A),  HYPR(KC_G),    HYPR(KC_S),    HYPR(KC_X),  HYPR(KC_F),  HYPR(KC_W),  HYPR(KC_C),  HYPR(KC_D),  _______,          _______,     _______,          _______,            RGB_TOG,      KC_MUTE,
-        KC_TAB,   KC_Q,        KC_W,          KC_E,          KC_R,        KC_T,                     KC_Y,        KC_U,        KC_I,             KC_O,        KC_P,             _______,  _______,  _______,      KC_PGUP,
-        _______,  KC_A,        KC_S,          KC_D,          KC_F,        KC_G,                     KC_H,        KC_J,        KC_K,             KC_L,        KC_QUOT,          _______,            _______,      KC_PGDN,
-        _______,  KC_Z,        LOPT_T(KC_X),  LGUI_T(KC_C),  KC_V,        KC_B,        _______,     KC_N,        KC_M,        LGUI_T(KC_COMM),  KC_DOT,       CTL_T(KC_ENT),   _______,  KC_UP,
-        _______,  _______,                    _______,       MO(SYMB),    KC_SPC,                   KC_LSFT,     MO(NUMB),    _______,                                     KC_LEFT,  KC_DOWN,  KC_RGHT),
+        _______,  HYPR(KC_A),  HYPR(KC_G),    HYPR(KC_S),    HYPR(KC_X),  HYPR(KC_F),  HYPR(KC_W),  HYPR(KC_C),  HYPR(KC_D),  _______,          _______,     CAPS_WORD,       _______,            RGB_TOG,      KC_MUTE,
+        _______,  KC_Q,        KC_W,          KC_E,          KC_R,        KC_T,                     KC_Y,        KC_U,        KC_I,             KC_O,        KC_P,            _______,  _______,  _______,      KC_PGUP,
+        _______,  KC_A,        KC_S,          KC_D,          KC_F,        KC_G,                     KC_H,        KC_J,        KC_K,             KC_L,        KC_QUOT,         _______,            _______,      KC_PGDN,
+        _______,  KC_Z,        LOPT_T(KC_X),  LGUI_T(KC_C),  KC_V,        KC_B,        _______,     KC_N,        KC_M,        LGUI_T(KC_COMM),  KC_DOT,      CTL_T(KC_ENT),   _______,  KC_UP,
+        _______,  _______,                    _______,       MO(SYMB),    KC_SPC,                   KC_LSFT,     MO(NUMB),    _______,                                        KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [SYMB] = LAYOUT_ansi_69(
-        KC_ESC,   _______,  _______,       _______,       _______,   _______,               _______,  _______,   _______,          _______, _______,          _______,  _______,  _______,      KC_MUTE,
-        KC_TAB,   KC_QUOT,  KC_DQUO,       KC_CIRC,       KC_QUES,   KC_GRAVE,              KC_LBRC,  KC_LT,     KC_EQL,           KC_GT,   KC_RBRC,          _______,  _______,  _______,      KC_PGUP,
-        _______,  KC_EXLM,  KC_AT,         KC_HASH,       KC_DLR,    KC_PERC,               KC_LCBR,  KC_LPRN,   KC_COLN,          KC_RPRN, KC_RCBR,          _______,            _______,      KC_PGDN,
-        _______,  KC_BSLS,  KC_TILD,       KC_PIPE,       KC_AMPR,   KC_SCLN,     _______,  KC_SLSH,  KC_ASTR,   KC_MINS,          KC_PLUS, KC_UNDS,          _______,  KC_UP,
-        _______,  _______,                 _______,       MO(SYMB),  KC_SPC,                KC_LSFT,  MO(NUMB),  _______,                                     KC_LEFT,  KC_DOWN,  KC_RGHT),
+        _______,  _______,     _______,       _______,       _______,     _______,                  _______,     _______,     _______,          _______,     _______,         _______,  _______,  _______,      KC_MUTE,
+        _______,  KC_QUOT,     KC_DQUO,       KC_CIRC,       KC_QUES,     KC_GRAVE,                 KC_LBRC,     KC_LT,       KC_EQL,           KC_GT,       KC_RBRC,         _______,  _______,  _______,      KC_PGUP,
+        _______,  KC_EXLM,     KC_AT,         KC_HASH,       KC_DLR,      KC_PERC,                  KC_LCBR,     KC_LPRN,     KC_COLN,          KC_RPRN,     KC_RCBR,         _______,            _______,      KC_PGDN,
+        _______,  KC_BSLS,     KC_TILD,       KC_PIPE,       KC_AMPR,     KC_SCLN,     _______,     KC_SLSH,     KC_ASTR,     KC_MINS,          KC_PLUS,     KC_UNDS,         _______,  KC_UP,
+        _______,  _______,                    _______,       MO(SYMB),    KC_SPC,                   KC_LSFT,     MO(NUMB),    _______,                                        KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [NUMB] = LAYOUT_ansi_69(
-        KC_ESC,   _______,  _______,       _______,       _______,   _______,               _______,  _______,   _______,          _______, _______,          _______,  _______,  _______,      KC_MUTE,
-        KC_TAB,   KC_LCTL,  KC_LOPT,       KC_TRNS,       KC_TAB,    KC_TRNS,               KC_PGUP,  KC_HOME,   KC_END,           KC_PGDN, KC_VOLU,          _______,  _______,  _______,      KC_PGUP,
-        _______,  KC_1,     KC_2,          KC_3,          KC_4,      KC_5,                  KC_LEFT,  KC_DOWN,   KC_UP,            KC_RGHT, KC_VOLD,          _______,            _______,      KC_PGDN,
-        _______,  KC_6,     KC_7,          KC_8,          KC_9,      KC_0,        _______,  KC_ESC,   KC_TRNS,   KC_TRNS,          KC_TRNS, KC_MUTE,          _______,  KC_UP,
-        _______,  _______,                 _______,       MO(SYMB),  KC_SPC,                KC_LSFT,  MO(NUMB),  _______,                                     KC_LEFT,  KC_DOWN,  KC_RGHT),
+        _______,  _______,     _______,       _______,       _______,     _______,                  _______,     _______,     _______,          _______,     _______,         _______,  _______,  _______,      KC_MUTE,
+        _______,  KC_LCTL,     KC_LOPT,       _______,       KC_TAB,      _______,                  KC_PGUP,     KC_HOME,     KC_END,           KC_PGDN,     KC_VOLU,         _______,  _______,  _______,      KC_PGUP,
+        _______,  KC_1,        KC_2,          KC_3,          KC_4,        KC_5,                     KC_LEFT,     KC_DOWN,     KC_UP,            KC_RGHT,     KC_VOLD,         _______,            _______,      KC_PGDN,
+        _______,  KC_6,        KC_7,          KC_8,          KC_9,        KC_0,        _______,     KC_ESC,      _______,     _______,          _______,     KC_MUTE,         _______,  KC_UP,
+        _______,  _______,                    _______,       MO(SYMB),    KC_SPC,                   KC_LSFT,     MO(NUMB),    _______,                                        KC_LEFT,  KC_DOWN,  KC_RGHT),
 
 };
 
@@ -124,7 +124,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM combo_lt[] = { KC_H, KC_J, COMBO_END };
 const uint16_t PROGMEM combo_gt[] = { KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM combo_col[] = { KC_J, KC_K, COMBO_END };
-const uint16_t PROGMEM combo_esc[] = { KC_Q, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_esc[] = { KC_V, KC_B, COMBO_END };
 const uint16_t PROGMEM combo_tab[] = { KC_F, KC_G, COMBO_END };
 const uint16_t PROGMEM combo_backspace[] = { KC_F, KC_D, COMBO_END };
 
