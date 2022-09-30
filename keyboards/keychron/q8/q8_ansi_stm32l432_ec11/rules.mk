@@ -30,3 +30,6 @@ WEAR_LEVELING_DRIVER = embedded_flash
 OPT_DEFS += -DCORTEX_ENABLE_WFI_IDLE=TRUE
 
 SRC += ./../factory/secondary/q2/test.c
+
+COMBO_ENABLE = yes
+CAPS_WORD_ENABLE = yes

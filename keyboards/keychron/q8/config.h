@@ -120,3 +120,6 @@
 
 /* Enable receive custom command from host */
 #define RAW_HID_CMD 0xAB
+
+#define IGNORE_MOD_TAP_INTERRUPT
+#define COMBO_COUNT 6
